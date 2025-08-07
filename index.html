@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>You Did It!</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 100px;
+      background-color: #f9f9ff;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #4CAF50;
+    }
+
+    #message {
+      margin-top: 30px;
+      font-size: 1.8em;
+      color: #333;
+    }
+
+    #celebrateBtn {
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Congratulations! 🎉</h1>
+  <div id="message">You’ve completed the course—awesome job! 🌟</div>
+
+  <button id="celebrateBtn">Celebrate!</button>
+
+  <!-- Celebration Sound -->
+  <audio id="cheer-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6c5c7fc46a.mp3?filename=success-fanfare-trumpets-6185.mp3" preload="auto"></audio>
+
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <script>
+    document.getElementById("celebrateBtn").addEventListener("click", function () {
+      const sound = document.getElementById("cheer-sound");
+      sound.play();
+
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      // Hide the button after celebration
+      this.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
